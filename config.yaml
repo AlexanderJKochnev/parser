@@ -1,0 +1,38 @@
+# config.yaml
+site:
+  base_url: "https://reestrinform.ru/federalnyi-reestr-alkogolnoi-produktcii/"
+  delay_between_requests: 1.0  # в секундах
+  max_workers: 5
+  user_agent: "Mozilla/5.0 (compatible; ReestrParser/1.0)"
+
+tags:
+  codes_page:
+    links_selector: "a[href*='/product/']"  # Пример селектора, нужно будет подобрать
+  names_page:
+    links_selector: "a[href*='/product/']"
+  file_link_selector: "a[href$='.pdf'], a[href$='.zip'], a[href$='.doc'], a[href$='.docx'], img[src]"
+
+database:
+  postgres:
+    host: "db"
+    port: 5432
+    database: "reestr_db"
+    username: "postgres"
+    password: "postgres"
+    echo: false  # true для отладки SQL
+  mongodb:
+    host: "mongo"
+    port: 27017
+    database: "reestr_files"
+    collection: "files"
+
+logging:
+  level: "INFO"
+  file: "app.log"
+
+blacklist:
+  codes: []
+  file_extensions: [".jpg", ".jpeg", ".png", ".gif"]  # если не хотим сохранять изображения как файлы
+
+gui:
+  refresh_interval: 2  # обновление GUI в секундах

@@ -11,4 +11,4 @@ ignore=C101,D107,WPS602,WPS605,DAR402,W504,S101
 enable-extensions = G
 dictionaries = en_US,python,technical
 import-order-style = google
-inline-quotes = "
+inline-quotes = ""
